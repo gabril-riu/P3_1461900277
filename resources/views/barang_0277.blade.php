@@ -25,15 +25,17 @@ th, td {
     <th>ID</th>
     <th>Nama</th> 
     <th>Alamat</th>
-    <th>Jenis Kelamin</th>
-    <th>Telp</th>
+    
   </tr>
-  @foreach ($barangs as $brg)
-  <tr>
-      <td>{{$barangs->id}}</td>
-      <td>{{$brg->nama}}</td>
-      <td>{{$brg->harga}}</td>
-  </tr>
+  @foreach ($pelanggans as $pelanggan)
+  @foreach ( as )
+      
+  @endforeach
+      <tr>
+          <td>{{$pelanggan->id}}</td>
+          <td>{{$pelanggan->nama}}</td>
+          <td>{{$pelanggan->alamat}}</td>
+      </tr>
   @endforeach
 </table>
 
