@@ -10,9 +10,9 @@ class barangController extends Controller
     //
     public function index(){
       $pelanggans = DB::table('pelanggan')
-      ->select('id','nama')
+      ->join('barang','barang.id','=','transaksi.id_pelanggan')
+      ->join('transaksi','transaksi.id_pelanggan','=','pelanggan.id')
       ->get();
-      $barangs = DB::table('barang')->get();
       return view('barang_0277',['pelanggans'=>$pelanggans],['barangs'=>$barangs]);
     }
 }
