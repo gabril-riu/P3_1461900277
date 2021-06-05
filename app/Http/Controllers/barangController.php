@@ -9,10 +9,17 @@ class barangController extends Controller
 {
     //
     public function index(){
-      $pelanggans = DB::table('pelanggan')
-      ->join('barang','barang.id','=','transaksi.id_pelanggan')
-      ->join('transaksi','transaksi.id_pelanggan','=','pelanggan.id')
+      $pelanggans = DB::table('transaksi')
+      ->join('barang','transaksi.id_barang','=','barang.id')
+      ->join('pelanggan','transaksi.id_pelanggan','=','pelanggan.id')
+      ->select(
+          'barang.nama as namaBarang',
+          'pelanggan.id as idPelanggan',
+           'pelanggan.nama as namaPelanggan',
+           'pelanggan.alamat as almPelanggan',
+           'barang.harga as hrgBrg'
+           )
       ->get();
-      return view('barang_0277',['pelanggans'=>$pelanggans],['barangs'=>$barangs]);
+      return view('barang_0277',['pelanggans'=> $pelanggans]);
     }
 }
